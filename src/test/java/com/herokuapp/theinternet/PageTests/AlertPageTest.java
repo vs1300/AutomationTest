@@ -1,10 +1,8 @@
 package com.herokuapp.theinternet.PageTests;
 
 import com.herokuapp.theinternet.Base.Base;
-import com.herokuapp.theinternet.driver.Driver;
 import com.herokuapp.theinternet.pages.AlertPage;
 import com.herokuapp.theinternet.pages.HomePage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +11,6 @@ public class AlertPageTest extends Base{
 
     @Test
     public void verifyJSAlertOnPage(){
-        Driver driverActions = new Driver();
         HomePage homePage = new HomePage(driver);
         AlertPage alertPage = new AlertPage(driver);
 
@@ -22,6 +19,17 @@ public class AlertPageTest extends Base{
         alertPage.acceptAlert();
 
         Assert.assertEquals(alertPage.getResult(),"You successfully clicked an alert");
+
+        alertPage.clickConfirmButton();
+        alertPage.dismissAlert();
+
+        Assert.assertEquals(alertPage.getResult(),"You clicked: Cancel");
+
+        alertPage.clickPromptButton();
+        alertPage.fillAlert("test");
+        alertPage.acceptAlert();
+
+        Assert.assertEquals(alertPage.getResult(),"You entered: test");
 
     }
 }

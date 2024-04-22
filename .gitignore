@@ -1,2 +1,5 @@
 /.gradle
 /.idea
+/TestNG_Reports
+/GradleReports
+/build
