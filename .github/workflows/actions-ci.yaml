@@ -2,16 +2,16 @@ name: TestRun
 on:
   workflow_dispatch:
     branches:
-      - main
+      - 'main'
   push:
     branches:
-      - main
+      - 'main'
       - 'feature_*'
   pull_request:
     types:
       - opened
     branches:
-      - main
+      - 'main'
 jobs:
   Run tests:
     runs-on: macos-latest
