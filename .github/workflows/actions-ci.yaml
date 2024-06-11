@@ -38,20 +38,10 @@ jobs:
     needs: Runtests
     runs-on: ubuntu-latest
     steps:
-      - name: Allure Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: allure-results
-          gh_pages: reports
-          allure_report: allure-report
-          allure_history: allure-history
-          keep_reports: 20
       - name: Add report to github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: reports
-          PUBLISH_DIR: allure-history
+          PUBLISH_DIR: build/reports/allure-report/allureReport
