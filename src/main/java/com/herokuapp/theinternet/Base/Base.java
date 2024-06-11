@@ -13,6 +13,7 @@ public class Base {
     public void initializeDriver(){
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(chromeOptions);
