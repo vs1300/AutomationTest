@@ -1,9 +1,6 @@
 name: TestRun
 on:
   workflow_dispatch:
-    branches:
-      - 'main'
-      - 'feature-*'
   push:
     branches:
       - 'main'
