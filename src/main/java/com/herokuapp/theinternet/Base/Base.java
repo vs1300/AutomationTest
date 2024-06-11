@@ -13,8 +13,6 @@ public class Base {
     public void initializeDriver(){
         //System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(chromeOptions);
         driver.navigate().to("https://the-internet.herokuapp.com/");
