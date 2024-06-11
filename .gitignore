@@ -3,4 +3,4 @@
 /testNG_Reports/
 /gradleReports/
 **/build
-/allure-report/
+/allure-results/allure-report/**
