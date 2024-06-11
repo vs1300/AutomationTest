@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.herokuapp.theinternet.PageTests.AlertPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-22T07:35:11" hostname="Vasunthras-MacBook-Pro.local" time="1.09">
-  <properties/>
-  <testcase name="verifyJSAlertOnPage" classname="com.herokuapp.theinternet.PageTests.AlertPageTest" time="1.09"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
