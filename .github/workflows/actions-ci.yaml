@@ -22,7 +22,7 @@ jobs:
       - name: Run tests
         run: ./gradlew test
       - name: Create report
-        uses: AutomationTest@master
+        uses: vs1300/AutomationTest@master
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
