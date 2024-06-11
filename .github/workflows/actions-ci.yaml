@@ -36,24 +36,6 @@ jobs:
     needs: Runtests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup JDK 11
-        uses: actions/setup-java@v4
-        with:
-          java-version: '11'
-          distribution: temurin
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5
-      - name: Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ubuntu-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-      - name: Run tests
-        run: ./gradlew test
       - name: Allure Report
         uses: simple-elf/allure-report-action@master
         if: always()
