@@ -34,6 +34,13 @@ jobs:
         run: ./gradlew test
       - name: Generate report
         run: ./gradlew allureReport
+      - name: Add report to github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: reports
+          PUBLISH_DIR: build/reports/allure-report/allureReport
   Reports:
     needs: Runtests
     runs-on: ubuntu-latest
