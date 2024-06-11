@@ -11,8 +11,9 @@ public class Base {
 
     @BeforeTest(alwaysRun = true)
     public void initializeDriver(){
-        //System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(chromeOptions);
         driver.navigate().to("https://the-internet.herokuapp.com/");

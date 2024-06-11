@@ -25,19 +25,23 @@ jobs:
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5
       - name: Run tests
         run: ./gradlew test
+  Report:
+    needs: Runtests
+    runs-on: ubuntu-latest
+    steps:
       - name: Allure Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: target/allure-results
-          gh_pages: reports
-          allure_report: allure-report
-          allure_history: allure-history
+          uses: simple-elf/allure-report-action@master
+          if: always()
+          id: allure-report
+          with:
+            allure_results: target/allure-results
+            gh_pages: reports
+            allure_report: allure-report
+            allure_history: allure-history
       - name: Add report to github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: reports
-          PUBLISH_DIR: allure-history
+          if: always()
+          uses: peaceiris/actions-gh-pages@v2
+          env:
+            PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            PUBLISH_BRANCH: reports
+            PUBLISH_DIR: allure-history
