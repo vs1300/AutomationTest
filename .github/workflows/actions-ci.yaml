@@ -3,10 +3,11 @@ on:
   workflow_dispatch:
     branches:
       - 'main'
+      - 'feature-*'
   push:
     branches:
       - 'main'
-      - 'feature_*'
+      - 'feature-*'
   pull_request:
     types:
       - opened
