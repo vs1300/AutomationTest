@@ -11,7 +11,7 @@ public class Base {
 
     @BeforeTest(alwaysRun = true)
     public void initializeDriver(){
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+        //System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--start-maximized");
