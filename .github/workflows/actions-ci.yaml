@@ -21,3 +21,10 @@ jobs:
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5
       - name: Run tests
         run: ./gradlew test
+      - name: Create report
+        uses: TestNG_Reports/index.html@master
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          check_name: new check name
+          report_paths: "**/testng-results.xml"
