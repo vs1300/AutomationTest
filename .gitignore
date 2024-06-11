@@ -1,5 +1,6 @@
 /.gradle
 /.idea
-/TestNG_Reports/
-/GradleReports/
-/build/
+/testNG_Reports/
+/gradleReports/
+**/build
+/allure-report/

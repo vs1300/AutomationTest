@@ -3,6 +3,8 @@ package com.herokuapp.theinternet.PageTests;
 import com.herokuapp.theinternet.Base.Base;
 import com.herokuapp.theinternet.pages.AlertPage;
 import com.herokuapp.theinternet.pages.HomePage;
+import io.qameta.allure.Description;
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,6 +12,7 @@ public class AlertPageTest extends Base{
 
 
     @Test
+    @Description("Verifying javaScript alerts")
     public void verifyJSAlertOnPage(){
         HomePage homePage = new HomePage(driver);
         AlertPage alertPage = new AlertPage(driver);
