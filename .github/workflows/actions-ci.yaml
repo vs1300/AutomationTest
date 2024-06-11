@@ -32,24 +32,8 @@ jobs:
           key: ubuntu-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
       - name: Run tests
         run: ./gradlew test
-      - name: Allure Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: target/allure-results
-          gh_pages: reports
-          allure_report: allure-report
-          allure_history: allure-history
-      - name: Add report to github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: reports
-          PUBLISH_DIR: allure-history
-
   Reports:
+    needs: Runtests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
