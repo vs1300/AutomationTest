@@ -1,5 +1,6 @@
 package com.herokuapp.theinternet.PageTests;
 
+import com.beust.jcommander.Parameter;
 import com.herokuapp.theinternet.Base.Base;
 import com.herokuapp.theinternet.pages.AlertPage;
 import com.herokuapp.theinternet.pages.HomePage;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 public class AlertPageTest extends Base{
 
 
-    @Test
+    @Test(description = "Verifying JS Alert",groups = "alert")
     public void verifyJSAlertOnPage(){
         HomePage homePage = new HomePage(driver);
         AlertPage alertPage = new AlertPage(driver);

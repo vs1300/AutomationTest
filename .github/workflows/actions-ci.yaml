@@ -1,11 +1,23 @@
 name: TestRun
 on:
   workflow_dispatch:
+    inputs:
+      groups:
+        default: 'all'
+        required: true
+        type: string
   push:
+    inputs:
+      groups:
+        default: 'all'
+        required: false
     branches:
       - 'main'
       - 'feature-*'
   pull_request:
+    inputs:
+      default: 'all'
+        required: false
     types:
       - opened
     branches:
@@ -24,9 +36,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5
       - name: Run tests
-        run: ./gradlew test
+        env:
+          BASIC_AUTH_USERNAME: ${{ secrets.BASIC_AUTH_USERNAME }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+        run: ./gradlew test -P groups=${{ inputs.groups }}
       - name: Upload report
         uses: actions/upload-artifact@v4
         with: 
           name: testng-report
-          path: TestNG_Reports/index.html
+          path: Reports/report.html
