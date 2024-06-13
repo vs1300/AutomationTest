@@ -12,7 +12,7 @@ public class BasicAuthTest extends Base {
     @Test(description = "Verifying basic auth",groups = "auth")
     public void verifyBasicAuth(){
         BasicAuthPage basicAuthPage = new BasicAuthPage(driver);
-        basicAuthPage.login(username, password);
+        basicAuthPage.login(username,password);
 
         String actual = basicAuthPage.getResult().trim();
         String expected = "Congratulations! You must have the proper credentials.";

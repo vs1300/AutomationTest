@@ -3,8 +3,8 @@ package com.herokuapp.theinternet.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.HasDevTools;
-import org.openqa.selenium.devtools.v102.network.Network;
-import org.openqa.selenium.devtools.v102.network.model.Headers;
+import org.openqa.selenium.devtools.v125.network.Network;
+import org.openqa.selenium.devtools.v125.network.model.Headers;
 
 import java.util.Base64;
 import java.util.HashMap;
