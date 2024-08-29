@@ -63,9 +63,9 @@ public class Base {
     public  void afterEachTestMethod(ITestResult result) throws IOException {
         test = report.createTest(result.getMethod().getDescription());
         if(result.getStatus() == ITestResult.FAILURE) {
-            String screenshotPath = captureScreenshot();
-            result.setAttribute("screenshotPath", screenshotPath);
-            test.addScreenCaptureFromPath(screenshotPath);
+            //String screenshotPath = captureScreenshot();
+            //result.setAttribute("screenshotPath", screenshotPath);
+            //test.addScreenCaptureFromPath(screenshotPath);
             test.log(Status.FAIL,result.getThrowable());
         }
         else if(result.getStatus() == ITestResult.SUCCESS) {
